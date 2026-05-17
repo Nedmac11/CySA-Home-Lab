@@ -1,7 +1,7 @@
 # CySA+ Home Lab Progress
 
 ## 🌐 Network Topology
-![Topology](CysaHomeLab.png)
+![Topology](https://githubusercontent.com)
 
 ---
 
