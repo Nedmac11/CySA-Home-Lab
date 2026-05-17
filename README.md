@@ -1,7 +1,7 @@
 # CySA+ Home Lab Progress
 
 ## 🌐 Network Topology
-![Topology](https://github.com/Nedmac11/CySA-Home-Lab/blob/main/homelab2.png?raw=true)
+![Topology](CysaHomeLab.png)
 
 ---
 
