@@ -81,6 +81,37 @@ To validate baseline integrity before launching live exploits, a simulated catas
 * **Data Integrity:** 100% telemetry retention.
 * **Status:** **SUCCESSFUL**. The environment is resilient and certified ready for aggressive Phase 3 exploit simulations.
 
+## 🌋 Phase 2.6: Disaster Recovery Simulation Test (DRST) (COMPLETE)
+* **Initial Manual Recovery Time:** 6 minutes, 42 seconds.
+* **Data Integrity:** 100% telemetry retention.
+* **Status:** SUCCESSFUL.
+
+### 🏎️ Phase 2.6.1: The "Two-Minute Drill" Script Test (LESSONS LEARNED)
+In an effort to optimize the recovery pipeline into a single-click script, a dual-node automation routine was executed to force-restore both VMs simultaneously from raw compressed ZSTD archives.
+
+#### 📊 Today's Benchmark Results
+* **Target RTO:** < 2 minutes.
+* **Actual Clock Time:** 12+ minutes (Stopwatch paused in protest).
+* **The Hardware Reality Check:** Extracting two heavy OS disks at the exact same millisecond maxed out the laptop's physical 2-core / 4-thread i3 processor. Heavy thermal throttling and disk write queues completely overrode the automation speed.
+* **The Port Traffic Jam:** Post-restoration, dual active listeners on the SIEM (Ports 9997 and 9100) caused an internal data collision loop, temporarily blinding the telemetry dashboard.
+
+#### 🧠 Real-World SOC Takeaways
+1. **Hardware is Finite:** Enterprise-grade automation scripts require staggered boot delays (`sleep 20`) on low-resource mobile hardware to prevent thread starvation.
+2. **Beware of Ghost Ports:** Network baselines must enforce a single, clean listening gate to prevent socket collisions after a total-loss restoration.
+3. **The Pivot:** The environment is currently being cleanly redeployed via the Proxmox Web UI to lock back into our conflict-free golden state.
+
+---
+
+## 🛠️ Phase 3: Defensive Analytics & Attack Simulation (REBUILD IN PROGRESS)
+The cyber range is currently undergoing a clean manual restore to sync our May 14th baseline configurations with today's updated network routing matrix.
+
+### 📋 Reconstruction Progress
+- [x] Identify hardware thread and data port bottlenecks.
+- [x] Clear frozen placeholder hypervisor virtual shells.
+- [ ] Extract clean `Win10Target` (VM 100) via local storage GUI.
+- [ ] Extract clean `KaliAttackNode` (VM 200) via local storage GUI.
+- [ ] Bridge the restored legacy application `outputs.conf` files cleanly onto the active `10.0.0.x` network range.
+
 ---
 
 ## 🖨️ Phase 2.7: Network Refactoring & Honeypot Deception Architecture (COMPLETE)
